@@ -2,7 +2,8 @@ package wiggler;
 
 import java.awt.AWTException;
 import java.awt.Robot;
-import java.awt.event.KeyEvent;
+import java.awt.Point;
+import java.awt.MouseInfo;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,7 +17,7 @@ public class main {
 			System.out.println("Break start: " + dateFormat.format(date));
 			
 			// Create yourself and find your handy-dandy mouse 
-			Robot robot = new Robot();
+			Robot me = new Robot();
 			Point mousePos = MouseInfo.getPointerInfo().getLocation();
 			
 			// Number of minutes to wait before pressing key again
