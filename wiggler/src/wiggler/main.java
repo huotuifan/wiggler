@@ -15,15 +15,20 @@ public class main {
 			Date date = new Date();
 			System.out.println("Break start: " + dateFormat.format(date));
 			
+			// Create yourself and find your handy-dandy mouse 
 			Robot robot = new Robot();
-			int minutes = 4, wait = 0; // Number of minutes to wait before pressing key again
+			Point mousePos = MouseInfo.getPointerInfo().getLocation();
+			
+			// Number of minutes to wait before pressing key again
+			int minutes = 4, wait = 0;
 			
 			while(true)
 			{
 				System.out.println("Minutes inactive: " + wait);
 				Thread.sleep(minutes * 60000);
-				robot.keyPress(KeyEvent.VK_SHIFT);	
-				robot.keyRelease(KeyEvent.VK_SHIFT);
+				mousePos = MouseInfo.getPointerInfo().getLocation();
+				me.mouseMove(mousePos.x+1, mousePos.y+1);
+				me.mouseMove(mousePos.x-1, mousePos.y-1);
 				wait += minutes;
 			}
 		} catch (AWTException | InterruptedException e) {
